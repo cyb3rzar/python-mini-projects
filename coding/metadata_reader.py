@@ -1,13 +1,13 @@
-#Importaciones
+#Imports
 import os
 import exifread
 from PyPDF2 import PdfReader
 
-# os >> maneja rutas verificando si un archivo existe y obtener su extensión.
-# exifread >> extrae metadatos EXIF de imágenes.
-# PyPDF2 >> permite leer y obtener metadatos de archivo PDF.
+# os >> handles paths checking if an archive exists or by obtaining its extension.
+# exifread >> extracts images metadata EXIF.
+# PyPDF2 >> allows read and obtain PDF archive metadata.
 
-# Funcion que analiza imagen
+# Function that analyze images
 def analizar_imagen(ruta):
     print(f"\n Metadatos de imagen. {ruta}")
     with open(ruta, 'rb') as f:
@@ -36,11 +36,11 @@ def analizar_pdf(ruta):
     except Exception as e:
         print(f"Error leyendo el PDF")
 
-# Abre el PDF con PdfReader.
-# Extrae los metadatos con pdf.metadata.
-# Usa try/except para evitar que el programa se caiga si el PDF esta dañado o protegido.
+# Open PDF with PdfReader.
+# Extracts metadata with pdf.metadata.
+# Use try/except to prevent the program from crashing if the PDF is damaged or protected.
 
-#Funcion principal
+#Principal function
  def main():
      print("=== Analizador de Metadatos ===")
      ruta = input("Introduce la ruta del archivo: ").strip()
@@ -56,15 +56,15 @@ def analizar_pdf(ruta):
      elif extension == '.pdf':
         analizar_pdf(ruta)
      else:
-            print("Tipo de archivo no soportado. Usa JPG, PNG o PDF.")
+            print("Archive types not supported. Usa JPG, PNG o PDF.")
 
-# Pide al usuario una ruta de archivo.
-# Verifica con os.path.exists() si el archivo realmente existe.
-# Usa os.path.splitext() para obtener la extensión del archivo.
+# Ask the user for a file path.
+# Verify with os.path.exists() if archive really exists.
+# Use os.path.splitext() to obtain the file path.
 
-#Ejecución del programa
+#Program execution
 if __name__ == "__main__":
     main()
 
-# Esto hace que se ejecute solo si lo corres directamente (ej. metadatos.py)
-# Si se importa como modulo no se ejecutará automáticamente.
+# This means it will run only if you run it directly. (ex. metadatos.py)
+# if it imports as a module it will not run automatically.
